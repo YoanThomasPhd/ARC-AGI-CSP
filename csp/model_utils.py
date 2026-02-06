@@ -3,7 +3,6 @@ from pychoco.variables.intvar import IntVar
 
 from csp.base_model import ArcModel
 
-
 def base_model(name: str="BaseModel", size: tuple[int]=(30,30)) -> ArcModel:
     model: Model = Model(name)
 

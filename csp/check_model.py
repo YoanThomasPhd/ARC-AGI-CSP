@@ -2,8 +2,9 @@ import json
 from pprint import pprint
 
 from pychoco import Model
+from triton.runtime import Heuristics
 
-from csp.utils import HEURISTICS_REGISTRY
+from csp.models import HEURISTICS_REGISTRY
 
 
 def check1(name_file: str, show=False) -> bool:

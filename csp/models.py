@@ -2,7 +2,16 @@ from itertools import product
 
 from csp.base_model import ArcModel
 from csp.model_utils import base_model, count_colors
-from csp.utils import register_heuristic
+
+HEURISTICS_REGISTRY = {}
+def register_heuristic(name=None):
+    def decorator(func):
+        key = name or func.__name__
+        if key in HEURISTICS_REGISTRY:
+            raise ValueError(f"Heuristic '{key}' already registered")
+        HEURISTICS_REGISTRY[key] = func
+        return func
+    return decorator
 
 @register_heuristic("23b5c85d")
 def data_23b5c85d():
