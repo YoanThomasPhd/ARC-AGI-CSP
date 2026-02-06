@@ -3,8 +3,7 @@ from pprint import pprint
 
 from pychoco import Model
 
-from csp.models import ArcModel, HEURISTICS_REGISTRY
-from models import base_model
+from csp.utils import HEURISTICS_REGISTRY
 
 
 def check1(name_file: str, show=False) -> bool:
