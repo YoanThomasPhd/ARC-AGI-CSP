@@ -16,11 +16,19 @@ def check1(name_file: str, show=False) -> bool:
         data = json.load(json_file)
 
     good = True
-    for train in data["train"] + data["test"]:
+    for train in data["train"]:
         model = model_gen()
         model.init_problem(train["input"])
         model.solve()
         good &= model.check_solution(train["output"])
+        if show:
+            model.show()
+
+    for test in data["test"]:
+        model = model_gen()
+        model.init_problem(test["input"])
+        model.solve()
+        good &= model.check_solution(test["output"])
         if show:
             model.show()
 
